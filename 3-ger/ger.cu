@@ -111,8 +111,8 @@ int main(int argc, char** argv)
 
     // n1000: configure your kernel here
     // TODO: the configuration below is a default that you must change
-    //dim3 block(16, 16);
-    dim3 block(32, 8);
+    dim3 block(16, 16); // this configuration gives the fastest result
+    //dim3 block(32, 8);
     dim3 grid(
         (m + block.x - 1) / block.x,
         (n + block.y - 1) / block.y
