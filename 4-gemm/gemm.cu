@@ -21,6 +21,23 @@ __global__ void batch_gemm_kernel(int n, int batch_size,
                                     float* C)
 {
     // TODO: write your own kernel here
+    int b = blockIdx.x; // matrix index
+    int i = blockIdx.y * blockDim.x + threadIdx.x; // global row index
+    int j = blockIdx.z * blockDim.y + threadIdx.y; // global column index
+
+    if (b < batch_size) {
+        const float* A_b = A + b*n*n; // each matrix has n*n floats
+        const float* B_b = B + b*n*n;
+        float* C_b = C + b*n*n;
+
+        if (i<n && j<n) {
+            float acc = 0.0f;
+            for(int k=0; k<n; ++k) {
+                acc += A_b[k*n+i] * B_b[j*n+k];
+            }
+            C_b[j*n+i] = acc;
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
