@@ -1,0 +1,34 @@
+# Executables and build outputs
+*.exe
+*.out
+*.app
+*.exp
+*.lib
+*.dll
+*.so
+*.a
+*.o
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.ptx
+*.cubin
+*.fatbin
+
+# CUDA / profiler temp files
+*.ii
+*.cudafe*
+*.module_id
+*.nvvp
+*.ncu-rep
+*.nsys-rep
+*.qdrep
+
+# Editor and OS temp files
+.vscode/
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
